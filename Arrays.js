@@ -1,4 +1,3 @@
-
 const greeting = "Hello, World!";
 const age = 25;
 const isActive = true;
