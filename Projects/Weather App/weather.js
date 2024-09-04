@@ -14,7 +14,19 @@ function getWeather() {
     const city = cityInput.value.trim();
     if (!city) return;
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?city=${city}&appid=${apiKey}&units=metric`)
+    fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + city + '&appid=' + apiKey)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length === 0) {
+                alert('City not found');
+                return;
+            }
+
+            const lat = data[0].lat;
+            const lon = data[0].lon;
+
+            return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`);
+        })
         .then(response => response.json())
         .then(data => displayWeather(data))
         .catch(error => console.error('Error fetching weather data:', error));
