@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Memory Game</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+        }
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            cursor: pointer;
+        }
+        .matched {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h1>Memory Game</h1>
+    <div class="grid" id="grid"></div>
+    <p id="timer">Time: 0 seconds</p>
+    <button id="restart">Restart Game</button> <!-- Ensure this button exists -->
+    <script src="memory.js"></script>
+</body>
+</html>
